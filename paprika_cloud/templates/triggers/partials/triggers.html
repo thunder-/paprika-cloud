@@ -1,0 +1,48 @@
+<p/>
+<h4 class="card-title">Triggers</h4>
+<h6 class="card-subtitle mb-2 text-muted">A trigger reflects a system event you want to act upon. Add, edit and remove triggers here.</h6>
+<hr>
+<ul class="nav">
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle btn btn-primary mt-4" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Create a trigger</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="/event_create?type=create">Event</a>
+      <a class="dropdown-item" href="/hook_create?type=create">Hook</a>
+      <a class="dropdown-item" href="/location_create?type=create">Location</a>
+      <a class="dropdown-item" href="/stream_create?type=create">Stream</a>
+    </div>
+  </li>
+</ul>
+<p/>
+<table class="table">
+  <thead class="table-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for trigger in triggers %}
+    <tr>
+      <th scope="row"><span class="badge badge-secondary">{{trigger.tte}}</span></th>
+      <td>
+        {% if trigger.tte == 'event' %}
+            <a href="/event_create?hashcode={{trigger.hashcode}}&type=update">{{trigger.name}}</a>
+        {% elif trigger.tte == 'hook' %}
+            <a href="/hook_create?hashcode={{trigger.hashcode}}&type=update">{{trigger.name}}</a>
+        {% elif trigger.tte == 'location' %}
+            <a href="/location_create?hashcode={{trigger.hashcode}}&type=update">{{trigger.name}}</a>
+        {% elif trigger.tte == 'stream' %}
+            <a href="/stream_create?hashcode={{trigger.hashcode}}&type=update">{{trigger.name}}</a>
+        {% else %}
+            {{trigger.name}}
+        {% endif %}
+      </td>
+      <td>{{trigger.description}}</td>
+      <td><a href="/trigger_delete?hashcode={{trigger.hashcode}}" class="btn btn-outline-primary btn-sm"><i class="fas fa-times"></i></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

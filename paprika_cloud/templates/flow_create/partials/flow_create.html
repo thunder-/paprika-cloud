@@ -1,0 +1,27 @@
+<p>
+    <h4>Create a flow</h4>
+    <h6>A flow reflects the actions you want to execute. Add, edit and remove flows here.</h6>
+    <hr>
+</p>
+
+ <form action="{{ url_for('flow_create.show') }}" method=post>
+    <div class="form-group">
+        <label for="name">name</label>
+        <input id="name" name="name" class="form-control" placeholder="enter the name of the flow" required autofocus>
+    </div>
+     <div class="form-group">
+        <label for="description">description</label>
+        <input id="description" name="description" class="form-control" placeholder="enter the description of the flow" required autofocus>
+    </div>
+    <div class="form-group">
+        <label for="trigger_type">Trigger type</label>
+        <select name="trigger_type" id="trigger_type" class="custom-select" required>
+            <option selected>select a trigger type</option>
+            {% for trigger_type in trigger_types %}
+            <option value="{{trigger_type.hashcode}}">{{trigger_type.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary white border hover">Create</button>
+</form>
+

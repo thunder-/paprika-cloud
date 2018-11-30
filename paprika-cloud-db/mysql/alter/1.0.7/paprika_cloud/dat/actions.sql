@@ -1,0 +1,15 @@
+delete from actions;
+insert into actions (name, agp_id, value, icon, icon_unicode) values ('start', get_action_group_id('common'), '','fas fa-circle','&#xf111');
+insert into actions (name, agp_id, value, icon, icon_unicode) values ('end', get_action_group_id('common'), '', 'far fa-circle', '&#xf111');
+insert into actions (name, agp_id, value, properties, icon, icon_unicode) values ('hook.payload-state', get_action_group_id('hook'), 'paprika.actions.hooks.PayloadState.PayloadState','[{"state":""}]', 'fas fa-thermometer-half','&#xf2c9');
+insert into actions (name, agp_id, value, properties, icon, icon_unicode) values ('hook.state', get_action_group_id('hook'), 'paprika.actions.hooks.State.State', '[{"state":""}]', 'fas fa-thermometer-half','&#xf2c9');
+insert into actions (name, agp_id, value, properties, icon, icon_unicode) values ('oracle.call', get_action_group_id('oracle'), 'paprika.actions.oracle.Call.Call', '[{"datasource":""}, {"method_name":""}, {"params":""}]', 'fas fa-database','&#xf1c0');
+insert into actions (name, agp_id, value, properties, icon) values ('event.purge-log', get_action_group_id('event'), 'paprika.actions.events.PurgeLog.PurgeLog', '[{"days":""}]', '');
+insert into actions (name, agp_id, value, properties, icon) values ('event.state', get_action_group_id('event'), 'paprika.actions.events.State.State', '[{"state":""}]', 'event');
+insert into actions (name, agp_id, value, properties, icon) values ('file.copy', get_action_group_id('file'), 'paprika.actions.files.Copy.Copy', '[{"drop_location":""}]', '');
+insert into actions (name, agp_id, value, properties, icon) values ('file.oracle.monitor', get_action_group_id('file'), 'paprika.actions.files.oracle.Monitor.Monitor', '[{"state":""}]', '');
+insert into actions (name, agp_id, value, properties, icon) values ('file.oracle.schedule', get_action_group_id('file'), 'paprika.actions.files.oracle.Schedule.Schedule', '[{"datasource":""}, {"method_name":""}]', '');
+insert into actions (name, agp_id, value, icon) values ('file.pipe', get_action_group_id('file'), 'paprika.actions.files.Pipe.Pipe', '');
+insert into actions (name, agp_id, value, properties, icon) values ('file.property', get_action_group_id('file'), 'paprika.actions.files.Property.Property', '[{"name":""}, {"value":""}]', '');
+insert into actions (name, agp_id, value, properties, icon) values ('file.state', get_action_group_id('file'), 'paprika.actions.files.State.State', '[{"state":""}]', '');
+insert into actions (name, agp_id, value, properties, icon) values ('file.unzip', get_action_group_id('file'), 'paprika.actions.files.Unzip.Unzip', '[{"drop_location":""}]', '');

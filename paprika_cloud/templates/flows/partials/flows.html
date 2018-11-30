@@ -1,0 +1,29 @@
+<p>
+    <h4>Flows</h4>
+    <h6>A flow reflects the actions you want to execute. Add, edit and remove flows here.</h6>
+    <hr>
+</p>
+
+<a href="/flow_create" class="btn btn-primary mt-4">Add a flow</a>
+</p>
+<table class="table">
+  <thead class="table-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for flow in flows %}
+    <tr>
+      <th scope="row"><span class="badge badge-secondary">{{flow.tte}}</span></th>
+      <td><a onclick="localStorage.setItem('hashcode', '{{flow.hashcode}}')" href="/flow_edit?hashcode={{flow.hashcode}}">{{flow.name}}</a></td>
+      <td>{{flow.description}}</td>
+      <td><a href="/flow_delete?hashcode={{flow.hashcode}}" class="btn btn-outline-primary btn-sm"><i class="fas fa-times"></i></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+

@@ -1,0 +1,14 @@
+<p>
+    <h4>Activate</h4>
+    <h6>Please fill in email address to complete the registration.</h6>
+    <hr>
+</p>
+<form id="activate-form" class="form-signin ajax" method="post">
+    <div class="form-group">
+        <label for="email">Email address:</label>
+        <input id="email" type="email" name="username" class="form-control" placeholder="Email address" required autofocus>
+    </div>
+    <input id="key" type="hidden" name="hashkey" value="{{key}}" class="form-control" placeholder="Activation key" required>
+    <button type="submit" class="btn btn-primary">Activate</button>
+</form>
+

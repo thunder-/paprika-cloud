@@ -1,0 +1,31 @@
+<p>
+    <h4>Create a stream</h4>
+    <h6>A stream listens to clicks on a webpage. Add, edit and remove streams here.</h6>
+    <hr>
+</p>
+ <form action="{{ url_for('stream_create.show') }}" method=post>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" name="name" class="form-control" value="{{trigger.name}}" placeholder="enter the name of the stream" required autofocus>
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <input id="description" name="description" value="{{trigger.description}}" class="form-control" placeholder="enter the description of the stream" required>
+    </div>
+    <div class="form-group">
+        <label for="url">Url</label>
+        <input id="url" name="url" value="{{trigger.url}}" class="form-control" placeholder="enter the url of the stream" required>
+    </div>
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input id="username" name="username" value="{{trigger.username}}" class="form-control" placeholder="enter the username used to login to the stream">
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" value="{{trigger.password}}" class="form-control" placeholder="enter the password used to login to the stream">
+    </div>
+    <input id="type" type="hidden" name="type" class="form-control" value="{{trigger.type}}">
+    <input id="hashcode" type="hidden" name="hashcode" class="form-control" value="{{trigger.hashcode}}">
+    <button type="submit" class="btn btn-primary white border hover">Create</button>
+</form>
+

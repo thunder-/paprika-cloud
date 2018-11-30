@@ -1,0 +1,3 @@
+insert into repetitions (name, created_at, created_by, updated_at, updated_by) values ('HOURS', now(), current_user(), now(), current_user());
+insert into repetitions (name, created_at, created_by, updated_at, updated_by) values ('DAYS', now(), current_user(), now(), current_user());
+insert into repetitions (name, created_at, created_by, updated_at, updated_by) values ('MINUTES', now(), current_user(), now(), current_user());

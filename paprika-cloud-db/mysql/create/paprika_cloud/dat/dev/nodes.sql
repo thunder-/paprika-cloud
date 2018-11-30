@@ -1,0 +1,3 @@
+insert into nodes(name,value) values ('hook','{"wires": [], "name": "hook", "properties": [{"datasource": null}, {"tablename": null}, {"selector": null}, {"options": null}], "type": "hook"}');
+insert into nodes(name,value) values ('rule','{"wires": [], "exceptions": [], "name": "rule", "type": "rule"}');
+insert into nodes(name,value) values ('hook.state','{"wires": [], "name": "state", "properties": [{"state": null}], "type": "paprika.actions.hooks.State.State"}');

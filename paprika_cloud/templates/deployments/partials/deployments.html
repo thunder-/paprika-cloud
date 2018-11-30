@@ -1,0 +1,29 @@
+<p>
+    <h4>Deployments</h4>
+    <h6>Make your flows deployable and bind them to a trigger. Add, edit and remove deployments here.</h6>
+    <hr>
+</p>
+
+<a href="/deployment_create?type=create" class="btn btn-primary mt-4">Create a deployment</a>
+<p/>
+<table class="table">
+  <thead class="table-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for deployment in deployments %}
+    <tr>
+      <th scope="row"><span class="badge badge-secondary">{{deployment.tte}}</span></th>
+      <td><a href="/deployment_create?hashcode={{deployment.hashcode}}&type=update">{{deployment.name}}</a></td>
+      <td>{{deployment.description}}</td>
+      <td><a href="/deployment_delete?hashcode={{deployment.hashcode}}" class="btn btn-outline-primary btn-sm"><i class="fas fa-times"></i></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+

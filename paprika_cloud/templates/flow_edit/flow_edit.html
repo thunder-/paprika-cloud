@@ -1,0 +1,22 @@
+{% extends "layout/layout.html" %}
+{% block body %}
+
+<div class="row pt-2 ">
+    <div class="col-2 col-lg-1 no-pr">
+        {% include "flow_edit/partials/flow_edit_sidebar.html" %}
+    </div>
+    <div class="col-10 col-lg-8 pl-0">
+        {% include "flow_edit/partials/flow_edit.html" %}
+    </div>
+    <div class="col-lg-3">
+        {% include "flow_edit/partials/flow_edit_config.html" %}
+    </div>
+</div>
+
+<script src="/static/flows_ext.js"></script>
+
+<script src="/static/flows_element.js"></script>
+<script src="/static/rest.js"></script>
+<script src="/static/spline.js"></script>
+<script src="/static/sweetalert2.all.js"></script>
+{% endblock %}

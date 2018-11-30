@@ -1,0 +1,2 @@
+insert into recursives (name, value, created_at, created_by, updated_at, updated_by) values ('yes', 1, now(), current_user(), now(), current_user());
+insert into recursives (name, value, created_at, created_by, updated_at, updated_by) values ('no', 0, now(), current_user(), now(), current_user());

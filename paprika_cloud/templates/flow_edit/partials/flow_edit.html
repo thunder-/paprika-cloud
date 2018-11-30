@@ -1,0 +1,16 @@
+<!--Node Canvas-->
+<!--<div id="canvas" class="canvas" style="width:100%; height: 750px;"></div>-->
+<div id="canvas" onkeyup="flow_ext.keyUp(event)" onclick="flow_ext.abort(event)" onmousemove="flow_ext.move(event)" tabindex="-1" style="width:100%; height: 750px; padding-left:5px;">
+    <svg style="width:100%; height: 100%">
+        <defs>
+            <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+                <path viewBox="200 20" d="M 50 0 L 0 0 0 50" fill="none" stroke="gainsboro" stroke-width="1"/>
+            </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)" />
+        <!--<text id="loading" class="fas" x="300" y="300" style="font-size:30px;font-family:FontAwesome;">&#xf111</text>-->
+    </svg>
+</div>
+
+
+

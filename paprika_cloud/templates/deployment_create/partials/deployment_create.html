@@ -1,0 +1,59 @@
+<p>
+    <h4>Create a deployment</h4>
+    <h6>Make your flows deployable and bind them to a trigger. Add, edit and remove deployments here.</h6>
+    <hr>
+</p>
+
+ <form action="{{ url_for('deployment_create.show') }}" method=post>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" name="name" value="{{deployment.name}}" class="form-control" placeholder="enter the name of the deployment" required autofocus>
+    </div>
+    <div class="form-group">
+        <label for="tgr_id">Trigger</label>
+        <select name="tgr_id" id="tgr_id" class="custom-select" required>
+            <option value="" selected>select a trigger</option>
+            {% for trigger in triggers %}
+                {% if trigger.id == deployment.tgr_id %}
+                    <option selected value="{{trigger.id}}">{{trigger.name}}</option>
+                {% else %}
+                    <option value="{{trigger.id}}">{{trigger.name}}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="pattern">Pattern</label>
+        <textarea id="pattern" name="pattern" value="{{deployment.pattern}}" class="form-control" rows="3" placeholder="^subscriber[a-z\s_0-9]+.csv$"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="flw_id">Flow</label>
+        <select name="flw_id" id="flw_id" class="custom-select" required>
+            <option value="" selected>select a flow</option>
+            {% for flow in flows %}
+                {% if flow.id == deployment.flw_id %}
+                    <option selected value="{{flow.id}}">{{flow.name}}</option>
+                {% else %}
+                    <option value="{{flow.id}}">{{flow.name}}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="e_flw_id">Exception flow</label>
+        <select name="e_flw_id" id="e_flw_id" class="custom-select">
+            <option value="" selected>select an exception flow</option>
+            {% for flow in flows %}
+                {% if flow.id == deployment.e_flw_id %}
+                    <option selected value="{{flow.id}}">{{flow.name}}</option>
+                {% else %}
+                    <option value="{{flow.id}}">{{flow.name}}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <input id="type" type="hidden" name="type" class="form-control" value="{{deployment.type}}">
+    <input id="hashcode" type="hidden" name="hashcode" class="form-control" value="{{deployment.hashcode}}">
+    <button type="submit" class="btn btn-primary white border hover">Create</button>
+</form>
+

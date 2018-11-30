@@ -1,0 +1,41 @@
+<p>
+    <h4>Create an event</h4>
+    <h6>Trigger on a specific time. Add, edit and remove events here.</h6>
+    <hr>
+</p>
+
+ <form action="{{ url_for('event_create.show') }}" method=post>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" name="name" class="form-control" value="{{trigger.name}}" placeholder="enter the name of the hook" required autofocus>
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <input id="description" name="description" value="{{trigger.description}}" class="form-control" placeholder="enter the description of the hook" required>
+    </div>
+    <div class="form-group">
+        <label for="repetition">Repetition</label>
+        <select name="repetition" id="repetition" class="custom-select" required>
+            <option selected>select a repetition</option>
+            {% for repetition in repetitions %}
+                {% if repetition.name == trigger.repetition %}
+                    <option selected value="{{repetition.name}}">{{repetition.name}}</option>
+                {% else %}
+                    <option value="{{repetition.name}}">{{repetition.name}}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="intermission">Intermission</label>
+        <input id="intermission" name="intermission" value="{{trigger.intermission}}" class="form-control" placeholder="enter the intermission, 0 - 59" required>
+    </div>
+    <div class="form-group">
+        <label for="expected">Expected</label>
+        <input id="expected" name="expected" value="{{trigger.expected}}" class="form-control" placeholder="expected" required>
+    </div>
+    <input id="type" type="hidden" name="type" class="form-control" value="{{trigger.type}}">
+    <input id="hashcode" type="hidden" name="hashcode" class="form-control" value="{{trigger.hashcode}}">
+    <button type="submit" class="btn btn-primary white border hover">Create</button>
+</form>
+

@@ -1,0 +1,28 @@
+{
+  "projects": [
+    {
+      "name": "paprika_cloud",
+      "repository": "https://{0}:'{1}'@github.com/oxymabv/paprika-cloud.git",
+      "technology": "python"
+    }
+  ],
+  "dev": [
+    {
+      "name": "paprika_cloud",
+      "server": ""
+    }
+  ],
+  "test": [
+    {
+      "name": "paprika_cloud",
+      "server": ""
+    }
+  ],
+  "uat": [
+    {
+      "name": "paprika_cloud",
+      "server": ""
+    }
+  ]
+}
+

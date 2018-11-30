@@ -1,0 +1,25 @@
+<p/>
+<h4 class="card-title">Profile</h4>
+<h6 class="card-subtitle mb-2 text-muted">This information will appear on your profile.</h6>
+<hr>
+
+<form action="{{ url_for('profile.show')}}?hashcode={{user.hashcode}}" id="profile-form" class="form-signin ajax" method="post">
+    <div class="form-group">
+        <label for="email">Email address:</label>
+        <input id="email" type="email" name="username" readonly="readonly" class="form-control" placeholder="Email address" required  value="{{ user.username }}">
+    </div>
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input id="name" type="text" name="name" class="form-control" placeholder="enter a name" autofocus value="{{user.name}}">
+    </div>
+    <div class="form-group">
+        <label for="name">Nickname:</label>
+        <input id="nickname" type="text" name="nickname" class="form-control" placeholder="enter a nickname" value="{{user.nickname}}">
+    </div>
+    <div class="form-group">
+        <label for="name">Organization:</label>
+        <input id="organization" type="text" name="organization" class="form-control" placeholder="enter a organization" value="{{user.organization}}">
+    </div>
+    <input id="hashcode" type="hidden" name="hashcode" class="form-control" value="{{user.hashcode}}">
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

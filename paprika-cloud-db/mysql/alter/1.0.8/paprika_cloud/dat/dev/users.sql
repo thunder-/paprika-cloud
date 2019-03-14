@@ -1,0 +1,1 @@
+update users set password=SHA2('onno',512) where username='onno.meijers@oxyma.nl';

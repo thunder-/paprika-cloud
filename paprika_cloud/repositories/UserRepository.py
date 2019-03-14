@@ -60,9 +60,13 @@ class UserRepository(Repository):
         connection = self.get_connection()
         cursor = connection.cursor()
 
+        sha512 = hashlib.sha512()
+        sha512.update(user['password'])
+        password = sha512.hexdigest()
+
         message = {}
         message['username'] = user['username']
-        message['password'] = user['password']
+        message['password'] = password
         message['active'] = user['active']
 
         statement = "insert into users(username, password, active) values (:username, :password, :active)"
@@ -96,10 +100,11 @@ class UserRepository(Repository):
 
     def login(self, username, password):
         user = self.find_by_username(username)
-        md5 = hashlib.md5()
-        md5.update(password)
+        sha512 = hashlib.sha512()
+        sha512.update(password)
+
         if user:
-            if user['password'] == md5.hexdigest():
+            if user['password'] == sha512.hexdigest():
                 session_repository = SessionRepository(self.get_connector())
                 session = session_repository.create()
                 session = session_repository.find_by_id(session['id'])
@@ -145,9 +150,9 @@ class UserRepository(Repository):
         connection = self.get_connection()
         cursor = connection.cursor()
 
-        md5 = hashlib.md5()
-        md5.update(password)
-        password = md5.hexdigest()
+        sha512 = hashlib.sha512()
+        sha512.update(password)
+        password = sha512.hexdigest()
 
         message = {}
         message['username'] = username

@@ -13,11 +13,13 @@ class User(UserMixin):
     def get_id(self):
         return unicode(self.id)
 
-    # Password is in de database met prefix {SHA-1} opgeslagen.
-    # Tevens is alles in uppercase in de database.
+    # Password is stored as SHA512 string.
     def check_password(self, password):
-        md5 = hashlib.md5()
-        md5.update(password)
-        if md5.hexdigest() == self.password:
+        sha512 = hashlib.sha512()
+        sha512.update(password)
+
+        print self.password
+        print sha512.hexdigest()
+        if sha512.hexdigest() == self.password:
             return True
         return False

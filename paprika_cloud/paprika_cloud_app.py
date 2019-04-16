@@ -97,7 +97,10 @@ def load_user(user_id):
     user_repository = UserRepository(connector)
     user = user_repository.find_by_id(user_id)
     connector.close()
-    return User(user['id'], user['username'], user['password'], user['hashcode'])
+    if not user:
+        return redirect(url_for('login.show'))
+    else:
+        return User(user['id'], user['username'], user['password'], user['hashcode'])
 
 
 @app.route('/logout')

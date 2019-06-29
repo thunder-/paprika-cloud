@@ -72,7 +72,7 @@ setup(
     packages=find_packages(exclude=['env', 'etc', 'run', 'static', 'templates']),
     package_data={'paprika_cloud': ['*.json']},
     include_package_data=True,
-    install_requires=['flask', 'flask_restful', 'flask-cors', 'flask-login', 'noora @ git+https://github.com/janripke/noora.git@1.1.0','uwsgi','mysqlclient'],
+    install_requires=['flask', 'flask_restful', 'flask-cors', 'flask-login', 'noora @ git+https://github.com/janripke/noora.git@1.1.0','uwsgi','mysql-python'],
     dependency_links=[
     ],
     entry_points={
